@@ -38,8 +38,8 @@ This project is a **FastAPI-based Notes Application** that allows users to add a
 ### 1. Clone the repository
 
 ```bash
-git clone [Clone](https://github.com/Akshat-Raii/Memoir)
-cd FastAPI-NotesApp
+git clone 
+
 ```
 
 ### 2. Create a virtual environment & activate it
