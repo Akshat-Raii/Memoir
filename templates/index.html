@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Notes</title>
+    <style>
+        /* --- Global Styles & Variables --- */
+        :root {
+            --background-color: #1e1e1e;
+            --text-color: #dcdcdc;
+            --accent-color: #d2b48c; /* A tan/beige color for accents */
+            --border-color: #555;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            font-family: 'Courier New', Courier, monospace;
+            text-transform: lowercase;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* --- THIS IS THE CRITICAL PART FOR CENTERING --- */
+        .terminal-container {
+            max-width: 700px; /* Sets a maximum width for your content */
+            margin: 40px auto;  /* Centers the container on the page */
+            padding: 20px;
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid var(--border-color);
+            margin: 30px 0;
+        }
+
+        /* --- Header & Navigation --- */
+        header, footer {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: normal;
+        }
+
+        .cursor {
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            from, to { color: transparent }
+            50% { color: var(--text-color); }
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none; /* Removes the underline */
+            margin: 0 5px;
+        }
+        nav a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+        /* This adds the '//' separator between links */
+        nav a:not(:last-child)::after {
+            content: " //";
+            color: var(--text-color);
+            text-decoration: none;
+            pointer-events: none;
+        }
+
+        /* --- Headings --- */
+        h2 {
+            font-size: 1.2rem;
+            font-weight: normal;
+            margin-bottom: 20px;
+            text-align: center; /* Center section titles */
+        }
+
+        /* --- Form Styling --- */
+        .form-section input,
+        .form-section textarea,
+        .form-section button {
+            background-color: transparent;
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+            font-family: inherit;
+            font-size: 1rem;
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+            resize: vertical;
+        }
+
+        .form-section input::placeholder,
+        .form-section textarea::placeholder {
+            color: #888;
+        }
+
+        .form-section button {
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .form-section button:hover {
+            background-color: var(--accent-color);
+            color: var(--background-color);
+            border-color: var(--accent-color);
+        }
+
+        /* --- Saved Notes Styling --- */
+        .note-item {
+            margin-bottom: 25px;
+        }
+        .note-item h3 {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin: 0;
+        }
+        .note-item .note-meta {
+            color: #888;
+            margin: 5px 0;
+            font-size: 0.9rem;
+        }
+        .note-item .note-content {
+            margin: 5px 0 0 0;
+        }
+
+        /* --- Footer --- */
+        footer {
+            color: #888;
+            font-size: 0.9rem;
+        }
+        .notes-list p {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="terminal-container">
+        
+        <header>
+            <h1>Memoir<span class="cursor">_</span></h1>
+            <nav>
+                <!-- <a href="#">home</a>
+                <a href="/about">about</a> -->
+            </nav>
+        </header>
+
+        <hr>
+
+        <main>
+            <section class="form-section">
+                <h2>add a new note</h2>
+                <form method="post" action="/add-note">
+                    <input type="text" name="title" placeholder="title" required>
+                    <textarea name="content" placeholder="content" rows="4" required></textarea>
+                    <button type="submit">add note</button>
+                </form>
+            </section>
+            
+            <hr>
+
+            <section class="notes-section">
+                <h2>saved notes</h2>
+                <div class="notes-list">
+                    
+                    {% for note in notes %}
+                    <div class="note-item">
+                        <h3>{{ note.title }}</h3>
+                        <!-- <p class="note-meta">&gt;&gt;{{ note.date_created }}&lt;&lt;</p>  -->
+                        <p class="note-content">{{ note.content }}</p>
+                    </div>
+                    {% else %}
+                    <p>you don't have any notes yet. add one above!</p>
+                    {% endfor %}
+                    </div>
+            </section>
+        </main>
+        
+        <hr>
+        
+        <footer>
+            © 2025 Memoir
+        </footer>
+
+    </div> </body>
+</html></script>
+  </body>
+</html>

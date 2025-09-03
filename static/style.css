@@ -1,0 +1,220 @@
+/* --- Variables & Base Styles --- */
+:root {
+    --bg-color: #282c34; /* Dark background */
+    --text-color: #abb2bf; /* Light gray for most text */
+    --primary-color: #61afef; /* A calm blue for links/highlights */
+    --secondary-text: #5c6370; /* Slightly darker gray for meta info */
+    --border-color: #3e4451; /* Darker border color */
+    --input-bg: #323842; /* Slightly lighter dark for inputs */
+    --button-bg: #98c379; /* Green for action buttons */
+    --button-hover-bg: #80b260;
+    --font-mono: 'IBM Plex Mono', monospace;
+    --font-sans: 'Inter', sans-serif;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #c678dd; /* A subtle purple on hover */
+}
+
+/* --- Header --- */
+.site-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.site-title {
+    font-family: var(--font-mono);
+    font-size: 2.8rem;
+    color: var(--text-color);
+    margin-bottom: 10px;
+    font-weight: 600;
+    text-transform: lowercase; /* Matches the reference style */
+}
+
+.site-title .blink {
+    animation: blink-animation 1s steps(2, start) infinite;
+    -webkit-animation: blink-animation 1s steps(2, start) infinite;
+    margin-left: -5px; /* Pull the underscore closer */
+}
+
+@keyframes blink-animation {
+    to {
+        visibility: hidden;
+    }
+}
+@-webkit-keyframes blink-animation {
+    to {
+        visibility: hidden;
+    }
+}
+
+.main-nav {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    text-transform: lowercase;
+    margin-bottom: 25px;
+}
+
+.nav-link {
+    margin: 0 5px;
+    color: var(--primary-color);
+}
+
+.header-divider {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    max-width: 400px;
+    margin: 30px auto 40px auto;
+}
+
+/* --- Main Content Container --- */
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* --- Section Titles --- */
+.section-title {
+    font-family: var(--font-mono);
+    font-size: 1.5rem;
+    color: var(--text-color);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    text-transform: lowercase;
+    font-weight: 400;
+}
+
+/* --- Form Styles --- */
+.note-form input,
+.note-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    background-color: var(--input-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--text-color);
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.note-form input:focus,
+.note-form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.note-form textarea {
+    resize: vertical; /* Allow vertical resizing */
+}
+
+.submit-button {
+    display: block;
+    width: 100%;
+    padding: 12px 20px;
+    background-color: var(--button-bg);
+    color: var(--bg-color); /* Dark text on light button */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: var(--font-mono);
+    font-weight: 600;
+    text-transform: lowercase;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: var(--button-hover-bg);
+}
+
+/* --- Notes List --- */
+.notes-list {
+    margin-top: 30px;
+}
+
+.note-item {
+    margin-bottom: 35px;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed var(--border-color); /* Dashed separator */
+}
+
+.note-item:last-child {
+    border-bottom: none; /* No border for the last item */
+}
+
+.note-item-title {
+    font-family: var(--font-mono);
+    font-size: 1.3rem;
+    color: #e06c75; /* A reddish color for titles, like in the example */
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.note-item-content {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+
+.note-meta {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--secondary-text);
+    display: block; /* Make it take its own line */
+    margin-top: 15px;
+}
+
+.no-notes-message {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    color: var(--secondary-text);
+    text-align: center;
+    margin-top: 40px;
+    text-transform: lowercase;
+}
+
+/* --- Footer --- */
+.site-footer {
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 20px;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--secondary-text);
+}
+
+.footer-divider {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    max-width: 300px;
+    margin: 0 auto 20px auto;
+}
+
+.footer-text {
+    text-transform: lowercase;
+}
