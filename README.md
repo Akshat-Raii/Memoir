@@ -1,4 +1,4 @@
-# memoir 📝 FastAPI Notes App
+# memoir 📝 
 
 This project is a **FastAPI-based Notes Application** that allows users to add and manage notes with a simple web interface.
 
