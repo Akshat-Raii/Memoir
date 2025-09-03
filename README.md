@@ -70,6 +70,11 @@ uvicorn index:app --reload
 Navigate to: http://127.0.0.1:8000
 
 
+## 📸 Screenshots
+Here's a glimpse of the application's interface.
+
+![alt text](image.png)
+
 ## 🙌 Contributing
 Contributions are welcome! 🎉
 Feel free to fork this repo, create a new branch, and submit a pull request.
