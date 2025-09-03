@@ -38,7 +38,7 @@ This project is a **FastAPI-based Notes Application** that allows users to add a
 ### 1. Clone the repository
 
 ```bash
-git clone [https://github.com/your-username/FastAPI-NotesApp.git](https://github.com/your-username/FastAPI-NotesApp.git)
+git clone [Clone](https://github.com/Akshat-Raii/Memoir)
 cd FastAPI-NotesApp
 ```
 
